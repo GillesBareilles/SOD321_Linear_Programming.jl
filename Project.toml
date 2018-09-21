@@ -1,0 +1,6 @@
+authors = ["Gilles Bareilles <gilles.bareilles@gmail.com>"]
+name = "SOD321Project"
+uuid = "2cf540f4-bdb5-11e8-2ee5-8946e585a5a6"
+version = "0.1.0"
+
+[deps]
