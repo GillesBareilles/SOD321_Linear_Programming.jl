@@ -13,12 +13,11 @@ function read_file(filepath::String)
 
         airplane_range = parse(Int, readline(f))
 
-        aero_to_coord = Vector{Tuple{Int, Int}}(undef, n_aerodrome)
+        aero_to_coord = zeros(Int, n_aerodrome, 2)
 
         i = 1
         while !eof(f)
-            x, y = parse.(Int, split(readline(f)))
-            aero_to_coord[i] = (x, y)
+            aero_to_coord[i, :] = parse.(Int, split(readline(f)))
             i += 1
         end
         @assert i == n_aerodrome+1

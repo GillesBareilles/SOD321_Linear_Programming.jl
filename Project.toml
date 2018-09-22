@@ -1,6 +1,8 @@
-authors = ["Gilles Bareilles <gilles.bareilles@gmail.com>"]
 name = "SOD321Project"
 uuid = "2cf540f4-bdb5-11e8-2ee5-8946e585a5a6"
+authors = ["Gilles Bareilles <gilles.bareilles@gmail.com>"]
 version = "0.1.0"
 
 [deps]
+GR = "28b8d3ca-fb5f-59d9-8090-bfdbd6d07a71"
+Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
