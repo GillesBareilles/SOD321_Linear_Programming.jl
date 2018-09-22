@@ -23,8 +23,9 @@ Afterwards, for using the module or develop it, just run `]activate .` and `usin
 ### Example
 
 ```julia
-julia> using SOD321Project
+]activate .
+using SOD321Project
 
-julia> pb = read_file("dummy_instance.txt")
-julia> plot_sol(pb, [1, 3, 2, 5])
+pb = read_file("dummy_instance.txt")
+plot_sol(pb, [1, 3, 2, 5])
 ```
