@@ -12,11 +12,11 @@ struct Problem
     # Constraints data
     start_aero::Int         # index of starting aero
     end_aero::Int           # index of final aero
-    n_aero_parcour::Int     # minimum number of aeros to go through
+    n_aero_parcour_min::Int     # minimum number of aeros to go through
 end
 
 function Problem()
-    return Problem(0, 0, Int[], Array{Int, 2}(undef, 0, 0), 0, 0, 0, 0)
+    return Problem(0, 0, Int[], zeros(1,1), 0, 0, 0, 0)
 end
 
 function show(io::IO, pb::Problem)
@@ -24,7 +24,7 @@ function show(io::IO, pb::Problem)
     println(io, rpad("n_aerodrome", 20), lpad(pb.n_aerodrome, 8))
     println(io, rpad("n_regions", 20), lpad(pb.n_regions, 8))
     println(io, rpad("airplane_range", 20), lpad(pb.airplane_range, 8))
-    println(io, rpad("n_aero_parcour", 20), lpad(pb.n_aero_parcour, 8))
+    println(io, rpad("n_aero_parcour_min", 20), lpad(pb.n_aero_parcour_min, 8))
     println(io, rpad("aero_to_region", 20))
     println(pb.aero_to_region)
     println(io, rpad("aero_to_coord", 20))

@@ -6,7 +6,7 @@ function read_file(filepath::String)
         n_aerodrome = parse(Int, readline(f))
         start_aero = parse(Int, readline(f))
         end_aero = parse(Int, readline(f))
-        n_aero_parcour = parse(Int, readline(f))
+        n_aero_parcour_min = parse(Int, readline(f))
         n_regions = parse(Int, readline(f))
 
         aero_to_region = parse.(Int, split(readline(f)))
@@ -29,7 +29,7 @@ function read_file(filepath::String)
                     airplane_range,
                     start_aero,
                     end_aero,
-                    n_aero_parcour)
+                    n_aero_parcour_min)
     end
 
     return pb

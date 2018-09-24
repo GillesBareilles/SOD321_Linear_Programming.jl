@@ -23,12 +23,12 @@ function plot_sol(pb::Problem)
     xmin, xmax = minimum(pb.aero_to_coord[:, 1]), maximum(pb.aero_to_coord[:, 1])
     ymin, ymax = minimum(pb.aero_to_coord[:, 2]), maximum(pb.aero_to_coord[:, 2])
 
-    scatter(x, y, color=colors, xlims=[0, xmax], ylims=[0, ymax])
+    scatter(x, y, color=colors, xlims=[0, max(xmax, ymax)], ylims=[0, max(xmax, ymax)])
     scatter!([xstart], [ystart], color=color=pb.aero_to_region[pb.start_aero],
                                 marker=:rect,
                                 lab="start")
     scatter!([xend], [yend], color=pb.aero_to_region[pb.end_aero],
-                                marker=:cross,
+                                marker=:diamond,
                                 lab="end")
     gui()
 end
@@ -44,5 +44,22 @@ function plot_sol(pb::Problem, sol::Vector{Int})
     plot!(xs, ys, color = :black,
                     lab="solution")
     title!("Solution, length=$(length(sol)), distance="*string(round(get_distance(pb, sol), digits=1)))
+    gui()
+end
+
+
+function plot_sol(pb::Problem, edge_act)
+    plot_sol(pb)
+
+    for i=1:size(edge_act, 1), j=1:size(edge_act, 2)
+        if edge_act[i, j] == 1
+            xs = [pb.aero_to_coord[i, 1], pb.aero_to_coord[j, 1]]
+            ys = [pb.aero_to_coord[i, 2], pb.aero_to_coord[j, 2]]
+            plot!(xs, ys, color = :black,
+                            lab="solution")
+        end
+    end
+
+    title!("Solution")
     gui()
 end
