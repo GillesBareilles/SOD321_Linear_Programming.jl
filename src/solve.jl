@@ -1,4 +1,4 @@
-# export solve_dumb
+export solve_poly
 
 # function solve_dumb(pb::Problem)
 #
@@ -18,7 +18,9 @@
 # end
 
 function solve_poly(pb)
-    m = Model(solver = GLPKSolverMIP(msg_lev = GLPK.MSG_ALL))
+    m = Model(with_optimizer(GLPK.Optimizer))
+
+    # m = Model(solver = GLPKSolverMIP(msg_lev = GLPK.MSG_ALL))
 
     n_aero = pb.n_aerodrome
     i_start = pb.start_aero
@@ -88,7 +90,7 @@ function solve_poly(pb)
     end
 
     ## Run through n_aero_parcour_min_min at least
-    @constraint m sum(i!=j?x[i, j]:0 for i ∈ aero_set, j ∈ aero_set) >= (pb.n_aero_parcour_min-1)
+    @constraint m sum(i!=j ? x[i, j] : 0 for i ∈ aero_set, j ∈ aero_set) >= (pb.n_aero_parcour_min-1)
 
 
     ## Eliminate all loops
@@ -97,11 +99,11 @@ function solve_poly(pb)
     n_soustours = 0
     for vertex_subset in setofallsubsets(points_nostartend)
         if length(vertex_subset) > 1
-            warn("subset = $vertex_subset")
-            ctr = @constraint m sum( i!=j?x[i, j]:0 for i ∈ vertex_subset, j ∈ vertex_subset) <= (length(vertex_subset)-1)
+            # @warn("subset = $vertex_subset")
+            ctr = @constraint m sum( i!=j ? x[i, j] : 0 for i ∈ vertex_subset, j ∈ vertex_subset) <= (length(vertex_subset)-1)
             n_soustours += 1
 
-            @show ctr
+            # @show ctr
         end
     end
     @show n_soustours
@@ -109,11 +111,19 @@ function solve_poly(pb)
 
     @objective m Min sum((x[i, j] + x[j, i]) * norm(pb.aero_to_coord[i, :] - pb.aero_to_coord[j, :]) for i=1:n_aero, j=1:i-1)
 
-    # return m
-    @show m
 
-    solve(m)
-    xsol = getvalue(x)
+    ## Optimizing and getting solver status, solution
+
+    optimize!(m)
+
+    @show JuMP.termination_status(m)
+
+    @show JuMP.primal_status(m)
+    # @show JuMP.dual_status(m)
+
+    @show JuMP.objective_value(m)
+
+    xsol = JuMP.result_value.(x)
 
     pos_coeffs = Set()
     for i=1:size(xsol, 1), j=1:size(xsol, 2)

@@ -1,15 +1,15 @@
 module SOD321Project
 
-# using LinearAlgebra
+using LinearAlgebra
 
 using Plots
 
-using JuMP, GLPK, GLPKMathProgInterface, Cbc
+using JuMP, GLPK
 
 include("types.jl")
 include("input.jl")
 include("plot.jl")
 
-# include("solve.jl")
+include("solve.jl")
 
 end # module
