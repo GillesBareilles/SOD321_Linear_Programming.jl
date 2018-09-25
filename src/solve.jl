@@ -1,23 +1,6 @@
-export solve_poly
+export solve_expo
 
-# function solve_dumb(pb::Problem)
-#
-#     m = Model(solver = GLPKSolverMIP(msg_lev = GLPK.MSG_ALL))
-#     # m = Model(solver = KnitroSolver())
-#
-#     @variable m x[1:2]
-#
-#     @constraint m x[1]+x[2]<=6
-#     @constraint m 9*x[1]+5*x[2]<=45
-#
-#     @objective m Max 8*x[1] + 5*x[2]
-#
-#     solve(m)
-#     xsol = getvalue(m, x)
-#
-# end
-
-function solve_poly(pb)
+function solve_expo(pb)
     m = Model(with_optimizer(GLPK.Optimizer))
 
     # m = Model(solver = GLPKSolverMIP(msg_lev = GLPK.MSG_ALL))

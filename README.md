@@ -20,6 +20,22 @@ Afterwards, for using the module or develop it, just run `]activate .` and `usin
 - `plot_sol(pb::Problem)`: displays a map of the problem,
 - `plot_sol(pb::Problem, sol::Vector{Int})`: displays a map of the problem and the given solution.
 
+## Resolution
+
+### Exponential constraints model
+
+Initial 'dense' model is implemented in the `solve_expo` function.
+
+Model 'sparse' in variables (only activation variables corresponding to edges that can be used) is implemented in the `solve_expo_sparse` function.
+
+TODOs:
+- Implement a non recursive way to compute set of all subsets, possibly with the iterator interface,
+- Model the 0 region, that does not have to be visited
+- Get number of variables and constraints
+- Implement model with a polynomial number of constraints
+- Make solver talk !
+- Then look into column generation and relaxations... need larger instances.
+
 ### Example
 
 ```julia
