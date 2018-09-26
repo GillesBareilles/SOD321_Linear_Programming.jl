@@ -6,9 +6,7 @@ function dij(pb, i, j)
 end
 
 function solve_expo_sparse(pb)
-    m = Model(with_optimizer(GLPK.Optimizer))
-
-    # m = Model(solver = GLPKSolverMIP(msg_lev = GLPK.MSG_ALL))
+    m = Model(with_optimizer(GLPK.Optimizer, msg_lev = GLPK.MSG_ALL))
 
     n_aero = pb.n_aerodrome
     i_start = pb.start_aero
@@ -24,6 +22,8 @@ function solve_expo_sparse(pb)
     xij = @variable m x[i in 1:n_aero, j in 1:n_aero; (dij(pb, i, j) < R) && (dij(pb, i, j) > 0)] Bin
 
     @show length(xij)
+
+    length(xij) > 30 && @error("Too large a number of variables for exponential model...")
 
     # ## Going to the starting point is forbidden
     # @constraint m sum(x[i, i_start] for i ∈ setdiff(aero_set, i_start)) == 0
