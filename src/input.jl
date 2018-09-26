@@ -1,4 +1,4 @@
-export read_file
+export read_file, write_instance
 
 function read_file(filepath::String)
     pb = Problem()
@@ -33,4 +33,31 @@ function read_file(filepath::String)
     end
 
     return pb
+end
+
+function write_instance(pb, filepath::String)
+    @assert ispath(first(splitdir(filepath)))
+
+    isfile(filepath) && rm(filepath)
+    touch(filepath)
+
+    open(filepath, "w") do f
+        println(f, pb.n_aerodrome)
+        println(f, pb.start_aero)
+        println(f, pb.end_aero)
+        println(f, pb.n_aero_parcour_min)
+        println(f, pb.n_regions)
+
+        for (i, region) in enumerate(pb.aero_to_region)
+            print(f, region, " ")
+        end
+        println(f)
+
+        println(f, pb.airplane_range)
+
+        for i=1:size(pb.aero_to_coord, 1)
+            x, y = pb.aero_to_coord[i, :]
+            println(f, x, " ", y)
+        end
+    end
 end
