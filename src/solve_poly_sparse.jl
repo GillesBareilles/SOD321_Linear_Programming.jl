@@ -1,7 +1,7 @@
 export solve_poly_sparse, solve_poly_sparse_CR
 
 function solve_poly_sparse(pb)
-    m = Model(with_optimizer(GLPK.Optimizer, msg_lev = GLPK.MSG_ALL))
+    m = Model(with_optimizer(Cbc.CbcOptimizer))
 
     n_aero = pb.n_aerodrome
     i_start = pb.start_aero
@@ -60,6 +60,10 @@ function solve_poly_sparse(pb)
         @constraint m sum(xij[i, j] for (i,j) in filter(x->x[1]==i0, keys(xij))) -
                       sum(xij[i, j] for (i,j) in filter(x->x[2]==i0, keys(xij))) == 0
         ## NOTE: this can be done more efficiently, prefering readability for now.
+
+        # At most one edge in, out
+        @constraint m sum(xij[i, j] for (i,j) in filter(x->x[1]==i0, keys(xij))) <= 1
+        @constraint m sum(xij[i, j] for (i,j) in filter(x->x[2]==i0, keys(xij))) <= 1
     end
 
     ## Run through n_aero_parcour_min_min at least
