@@ -2,7 +2,7 @@ export build_sparsity_pattern, solve_expo_sparse, build_variables
 
 
 function dij(pb, i, j)
-    return norm(pb.aero_to_coord[i, :] - pb.aero_to_coord[j, :])
+    return round(norm(pb.aero_to_coord[i, :] - pb.aero_to_coord[j, :]))
 end
 
 function solve_expo_sparse(pb)

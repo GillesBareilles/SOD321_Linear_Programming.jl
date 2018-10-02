@@ -4,7 +4,7 @@ using LinearAlgebra, SparseArrays
 
 # using Plots
 
-using JuMP, GLPK
+using JuMP, GLPK, Cbc
 
 include("types.jl")
 include("input.jl")

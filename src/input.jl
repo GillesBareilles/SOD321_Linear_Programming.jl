@@ -9,14 +9,21 @@ function read_file(filepath::String)
         n_aero_parcour_min = parse(Int, readline(f))
         n_regions = parse(Int, readline(f))
 
+        readline(f)
+
         aero_to_region = parse.(Int, split(readline(f)))
 
+        readline(f)
+
         airplane_range = parse(Int, readline(f))
+
+        readline(f)
+
 
         aero_to_coord = zeros(Int, n_aerodrome, 2)
 
         i = 1
-        while !eof(f)
+        while i <= n_aerodrome
             aero_to_coord[i, :] = parse.(Int, split(readline(f)))
             i += 1
         end
