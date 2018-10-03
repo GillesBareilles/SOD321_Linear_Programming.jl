@@ -19,12 +19,6 @@ git-tree-sha1 = "5d55b9486590fdda5905c275bb21ce1f0754020f"
 uuid = "e1450e63-4bb3-523b-b2a4-4ffa8c0fd77d"
 version = "1.0.0"
 
-[[CPLEX]]
-deps = ["Compat", "Libdl", "MathProgBase"]
-git-tree-sha1 = "bc18c6a1c71c19df4e3f5c5da4f0907eb1022c46"
-uuid = "a076750e-1247-5638-91d2-ce28b192dca0"
-version = "0.3.3"
-
 [[Calculus]]
 deps = ["Compat"]
 git-tree-sha1 = "f60954495a7afcee4136f78d1d60350abd37a409"
@@ -145,7 +139,7 @@ version = "0.19.0"
 
 [[JuMP]]
 deps = ["Calculus", "Compat", "DataStructures", "ForwardDiff", "MathOptInterface", "NaNMath"]
-git-tree-sha1 = "c45e146ad1ea6d72bf5707996e2502463dbf1bb1"
+git-tree-sha1 = "3d7e9981fa5822cda8ad668510ab90ba6e0690fa"
 repo-rev = "master"
 repo-url = "https://github.com/JuliaOpt/JuMP.jl.git"
 uuid = "4076af6c-e467-56ae-b986-b466b2749572"
@@ -197,14 +191,6 @@ deps = ["Compat", "Unicode"]
 git-tree-sha1 = "ba12e7ce825c1458c03f88aae84fa630d882d303"
 uuid = "b8f27783-ece8-5eb3-8dc8-9495eed66fee"
 version = "0.6.1"
-
-[[MathOptInterfaceCPLEX]]
-deps = ["CPLEX", "LinQuadOptInterface", "MathOptInterface"]
-git-tree-sha1 = "5e02b53436c5772641dab77b4355598b706a5b7b"
-repo-rev = "master"
-repo-url = "https://github.com/JuliaOpt/MathOptInterfaceCPLEX.jl.git"
-uuid = "85754b4a-60ea-52a4-946d-695933d279d6"
-version = "0.0.0"
 
 [[MathOptInterfaceMosek]]
 deps = ["MathOptInterface", "Mosek", "Pkg", "Printf", "Test"]

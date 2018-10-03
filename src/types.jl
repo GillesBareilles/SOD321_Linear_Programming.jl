@@ -20,17 +20,19 @@ function Problem()
 end
 
 function show(io::IO, pb::Problem)
+    xmin = minimum(pb.aero_to_coord[:, 1])
+    ymin = minimum(pb.aero_to_coord[:, 2])
+    xmax = maximum(pb.aero_to_coord[:, 1])
+    ymax = maximum(pb.aero_to_coord[:, 2])
+
     println(io, "- SOD321 instance with:")
     println(io, rpad("n_aerodrome", 20), lpad(pb.n_aerodrome, 8))
     println(io, rpad("n_regions", 20), lpad(pb.n_regions, 8))
     println(io, rpad("airplane_range", 20), lpad(pb.airplane_range, 8))
+    print(io, rpad("regions", 26))
+    println(collect(SortedSet(pb.aero_to_region)))
+    println(io, rpad("space", 26), "[$xmin, $xmax]×[$ymin, $ymax]")
     println(io, rpad("n_aero_parcour_min", 20), lpad(pb.n_aero_parcour_min, 8))
-    println(io, rpad("aero_to_region", 20))
-    println(pb.aero_to_region)
-    println(io, rpad("aero_to_coord", 20))
-    display(pb.aero_to_coord)
-    println(io, rpad("start_aero", 20), lpad(pb.start_aero, 8))
-    println(io, rpad("end_aero", 20), lpad(pb.end_aero, 8))
     nothing
 end
 

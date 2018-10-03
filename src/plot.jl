@@ -56,8 +56,7 @@ function plot_sol(pb::Problem, edge_act)
         if edge_act[i, j] == 1
             xs = [pb.aero_to_coord[i, 1], pb.aero_to_coord[j, 1]]
             ys = [pb.aero_to_coord[i, 2], pb.aero_to_coord[j, 2]]
-            plot!(xs, ys, color = :black,
-                            lab="solution")
+            plot!(xs, ys, color = :black)
         end
     end
 
