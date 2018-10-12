@@ -21,13 +21,13 @@ function solve_poly_sparse(pb)
     # ## Going to the starting point is forbidden
     # @constraint m sum(x[i, i_start] for i ∈ setdiff(aero_set, i_start)) == 0
     ## One edge leaving the starting point
-    @constraint m sum(xij[i, j] for (i,j) ∈ filter(x->x[1]==i_start, keys(xij))) >= 1
+    @constraint m sum(xij[i, j] for (i,j) ∈ filter(x->x[1]==i_start, keys(xij))) == 1
 
 
     # ## Similarly, going from the end point is forbidden
     # @constraint m sum(x[i_end, j] for j ∈ setdiff(aero_set, i_end)) == 0
     ## One edge leading to the end
-    @constraint m sum(xij[i, j] for (i,j) ∈ filter(x->x[2]==i_end, keys(xij))) >= 1
+    @constraint m sum(xij[i, j] for (i,j) ∈ filter(x->x[2]==i_end, keys(xij))) == 1
 
     ## Constraint per sector
     regions = Set(pb.aero_to_region)

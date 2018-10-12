@@ -9,26 +9,14 @@ version = "0.8.10"
 
 [[BinaryProvider]]
 deps = ["Libdl", "Pkg", "SHA", "Test"]
-git-tree-sha1 = "48c147e63431adbcee69bc40b04c3f0fec0a4982"
+git-tree-sha1 = "38be61810f280c3c478f5c38aaf387f8f9199275"
 uuid = "b99e7846-7c00-51b0-8f62-c81ae34c0232"
-version = "0.5.0"
-
-[[BufferedStreams]]
-deps = ["Compat", "Pkg", "Test"]
-git-tree-sha1 = "5d55b9486590fdda5905c275bb21ce1f0754020f"
-uuid = "e1450e63-4bb3-523b-b2a4-4ffa8c0fd77d"
-version = "1.0.0"
+version = "0.5.1"
 
 [[Calculus]]
 deps = ["Compat"]
 git-tree-sha1 = "f60954495a7afcee4136f78d1d60350abd37a409"
 uuid = "49dc2e85-a5d0-5ad3-a950-438e2897f1b9"
-version = "0.4.1"
-
-[[Cbc]]
-deps = ["BinDeps", "Compat", "Homebrew", "Libdl", "MathOptInterface", "MathProgBase", "WinRPM"]
-git-tree-sha1 = "ff1f0e06d81c97fb123e65e9b68ac1aef0c06972"
-uuid = "9961bab8-2fa3-5c5a-9d89-47fab24efd76"
 version = "0.4.1"
 
 [[ColorTypes]]
@@ -103,29 +91,11 @@ git-tree-sha1 = "8425a7d4e060bc2ded32d090bce910a187d6cce7"
 uuid = "f6369f11-7733-5829-9624-2563aa707210"
 version = "0.9.0"
 
-[[GLPK]]
-deps = ["BinaryProvider", "Compat", "Libdl", "LinQuadOptInterface", "Pkg"]
-git-tree-sha1 = "ca8bd74b621e124f0c2ca2837b98b0053e131006"
-uuid = "60bf3e95-4087-53dc-ae20-288a0d20c6a6"
-version = "0.8.2"
-
 [[GR]]
 deps = ["Base64", "DelimitedFiles", "Pkg", "Random", "Serialization", "Sockets", "Test"]
 git-tree-sha1 = "0437921cbf8ee555ab7a2a3115c1d0907289e816"
 uuid = "28b8d3ca-fb5f-59d9-8090-bfdbd6d07a71"
 version = "0.34.1"
-
-[[HTTPClient]]
-deps = ["Compat", "LibCURL"]
-git-tree-sha1 = "161d5776ae8e585ac0b8c20fb81f17ab755b3671"
-uuid = "0862f596-cf2d-50af-8ef4-f2be67dfa83f"
-version = "0.2.1"
-
-[[Homebrew]]
-deps = ["BinDeps", "InteractiveUtils", "JSON", "Libdl", "Test", "Unicode"]
-git-tree-sha1 = "5582ec74f735cf8d12e562a2e65c47f34063bd51"
-uuid = "d9be37ee-ecc9-5288-90f1-b9ca67657a75"
-version = "0.7.0"
 
 [[InteractiveUtils]]
 deps = ["LinearAlgebra", "Markdown"]
@@ -138,42 +108,16 @@ uuid = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
 version = "0.19.0"
 
 [[JuMP]]
-deps = ["Calculus", "Compat", "DataStructures", "ForwardDiff", "MathOptInterface", "NaNMath"]
-git-tree-sha1 = "3d7e9981fa5822cda8ad668510ab90ba6e0690fa"
-repo-rev = "master"
-repo-url = "https://github.com/JuliaOpt/JuMP.jl.git"
+deps = ["Calculus", "Compat", "ForwardDiff", "MathProgBase", "Pkg", "ReverseDiffSparse"]
+git-tree-sha1 = "3716c8cae07d5056e7b9981d2d4dde239bd9c1d1"
 uuid = "4076af6c-e467-56ae-b986-b466b2749572"
-version = "0.18.3+"
-
-[[LibCURL]]
-deps = ["BinaryProvider", "Compat", "Libdl", "Pkg", "Printf"]
-git-tree-sha1 = "6339c87cb76923a3cf947fcd213cbc364355c9c9"
-uuid = "b27032c2-a3e7-50c8-80cd-2d36dbcbfd21"
-version = "0.4.1"
-
-[[LibExpat]]
-deps = ["Compat", "Pkg"]
-git-tree-sha1 = "fde352ec13479e2f90e57939da2440fb78c5e388"
-uuid = "522f3ed2-3f36-55e3-b6df-e94fee9b0c07"
-version = "0.5.0"
+version = "0.18.4"
 
 [[LibGit2]]
 uuid = "76f85450-5226-5b5a-8eaa-529ad045b433"
 
 [[Libdl]]
 uuid = "8f399da3-3557-5675-b5ff-fb832c97cbdb"
-
-[[Libz]]
-deps = ["BufferedStreams", "Random", "Test"]
-git-tree-sha1 = "d405194ffc0293c3519d4f7251ce51baac9cc871"
-uuid = "2ec943e9-cfe8-584d-b93d-64dcb6d567b7"
-version = "1.0.0"
-
-[[LinQuadOptInterface]]
-deps = ["Compat", "MathOptInterface", "Pkg"]
-git-tree-sha1 = "777c9d1c64b1fc5bd20b2b7b13b746c2c757df0d"
-uuid = "f8899e07-120b-5979-ab1d-7b97bb9e1a48"
-version = "0.4.0"
 
 [[LinearAlgebra]]
 deps = ["Libdl"]
@@ -185,18 +129,6 @@ uuid = "56ddb016-857b-54e1-b83d-db4d58db5568"
 [[Markdown]]
 deps = ["Base64"]
 uuid = "d6f4376e-aef5-505a-96c1-9c027394607a"
-
-[[MathOptInterface]]
-deps = ["Compat", "Unicode"]
-git-tree-sha1 = "ba12e7ce825c1458c03f88aae84fa630d882d303"
-uuid = "b8f27783-ece8-5eb3-8dc8-9495eed66fee"
-version = "0.6.1"
-
-[[MathOptInterfaceMosek]]
-deps = ["MathOptInterface", "Mosek", "Pkg", "Printf", "Test"]
-git-tree-sha1 = "e69e281c93643c778c9ebc761b353058822135e9"
-uuid = "0087ddc6-3964-5e57-817f-9937aefb0357"
-version = "0.4.1"
 
 [[MathProgBase]]
 deps = ["Compat"]
@@ -218,12 +150,6 @@ version = "0.3.1"
 
 [[Mmap]]
 uuid = "a63ad114-7e13-5084-954f-fe012c677804"
-
-[[Mosek]]
-deps = ["Libdl", "MathProgBase", "Pkg", "Printf", "SparseArrays", "Test"]
-git-tree-sha1 = "4430afb717dd5c602d891566a81ce41c5b5a4933"
-uuid = "6405355b-0ac2-5fba-af84-adbd65488c0e"
-version = "0.9.2"
 
 [[NaNMath]]
 deps = ["Compat"]
@@ -249,15 +175,15 @@ version = "0.3.0"
 
 [[PlotUtils]]
 deps = ["Colors", "Dates", "Printf", "Random", "Reexport", "Test"]
-git-tree-sha1 = "78553a920c4869d20742ba66193e3692369086ec"
+git-tree-sha1 = "fd28f30a294a38ec847de95d8ac7ac916ccd7c06"
 uuid = "995b91a9-d308-5afd-9ec6-746e21dbc043"
-version = "0.5.4"
+version = "0.5.5"
 
 [[Plots]]
 deps = ["Base64", "Contour", "Dates", "FixedPointNumbers", "GR", "JSON", "LinearAlgebra", "Measures", "NaNMath", "Pkg", "PlotThemes", "PlotUtils", "Printf", "Random", "RecipesBase", "Reexport", "Requires", "Showoff", "SparseArrays", "StaticArrays", "Statistics", "StatsBase", "Test", "UUIDs"]
-git-tree-sha1 = "2beef1ccb7a7630d39a7979c9709bacb5fb8666c"
+git-tree-sha1 = "437b77558cc7f24883bd4c4fe25a240304402ffd"
 uuid = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
-version = "0.20.4"
+version = "0.20.5"
 
 [[Printf]]
 deps = ["Unicode"]
@@ -288,6 +214,12 @@ deps = ["Test"]
 git-tree-sha1 = "f6fbf4ba64d295e146e49e021207993b6b48c7d1"
 uuid = "ae029012-a4dd-5104-9daa-d747884805df"
 version = "0.5.2"
+
+[[ReverseDiffSparse]]
+deps = ["Calculus", "Compat", "DataStructures", "ForwardDiff", "MathProgBase", "NaNMath", "Pkg"]
+git-tree-sha1 = "2cb17849ace67b13262de616e7dc080dc188e832"
+uuid = "89212889-6d3f-5f97-b412-7825138f6c9c"
+version = "0.8.3"
 
 [[SHA]]
 uuid = "ea8e919c-243c-51af-8825-aaa63cd721ce"
@@ -356,9 +288,3 @@ uuid = "cf7118a7-6976-5b1a-9a39-7adc72f591a4"
 
 [[Unicode]]
 uuid = "4ec0a83e-493e-50e2-b9ac-8f72acf5a8f5"
-
-[[WinRPM]]
-deps = ["BinDeps", "Compat", "HTTPClient", "LibExpat", "Libdl", "Libz", "URIParser"]
-git-tree-sha1 = "2a889d320f3b77d17c037f295859fe570133cfbf"
-uuid = "c17dfb99-b4f7-5aad-8812-456da1ad7187"
-version = "0.4.2"

@@ -32,7 +32,7 @@ Model 'sparse' in variables (only activation variables corresponding to edges th
 
 Model 'sparse' in variables (only activation variables corresponding to edges that can be used) is implemented in the `solve_poly_sparse` function.
 
-## TODOs:
+## TODOs
 
 - [ ] Implement a non recursive way to compute set of all subsets, possibly with the iterator interface,
 - [ ] Model the 0 region, that does not have to be visited
@@ -44,8 +44,7 @@ Model 'sparse' in variables (only activation variables corresponding to edges th
 
 ```julia
 ]activate .
-using SOD321Project
+using SOD321Project; include("src/plot.jl")
 
 pb = read_file("dummy_instance.txt")
-plot_sol(pb, [1, 3, 2, 5])
 ```
