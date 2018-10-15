@@ -35,13 +35,13 @@ Model 'sparse' in variables (only activation variables corresponding to edges th
 ## TODOs
 
 - [ ] Implement a non recursive way to compute set of all subsets, possibly with the iterator interface,
-- [ ] Model the 0 region, that does not have to be visited
-- [ ] Get number of variables and constraints from JuMP model
-- [ ] Implement model with a polynomial number of constraints
+- [x] Model the 0 region, that does not have to be visited
+- [x] Get number of variables and constraints from JuMP model
+- [x] Implement model with a polynomial number of constraints
 - [ ] Then look into column generation and relaxations...
 
 - [ ] Lazy callback
-- [ ] Implement solve function
+- [x] Implement solve function
 - [ ] Update polynomial model to new structure, test on all instances.
 - [ ] Bound ui by n, for potential better relaxations.
 
@@ -52,6 +52,8 @@ Model 'sparse' in variables (only activation variables corresponding to edges th
 using SOD321Project; include("src/plot.jl")
 
 pb = read_file("dummy_instance.txt")
+
+xsol = 
 ```
 
 ### Evaluation
