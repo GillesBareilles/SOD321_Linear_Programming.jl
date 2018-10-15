@@ -43,6 +43,7 @@ Model 'sparse' in variables (only activation variables corresponding to edges th
 - [ ] Lazy callback
 - [ ] Implement solve function
 - [ ] Update polynomial model to new structure, test on all instances.
+- [ ] Bound ui by n, for potential better relaxations.
 
 ### Example
 
@@ -52,3 +53,11 @@ using SOD321Project; include("src/plot.jl")
 
 pb = read_file("dummy_instance.txt")
 ```
+
+### Evaluation
+
+rapport:
+- les deux modèles,
+- par instance, donner l'optimum, les temps de calcul, le modèle choisi.
+
+soutenance : test du code sur instances aléatoires.

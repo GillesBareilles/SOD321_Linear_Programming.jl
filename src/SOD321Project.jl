@@ -17,7 +17,7 @@ include("build_base_model.jl")
 include("solve_expo.jl")
 include("solve_expo_lazy.jl")
 
-
+include("solve_poly.jl")
 
 ## Old irrelevant stuff
 # include("solve.jl")

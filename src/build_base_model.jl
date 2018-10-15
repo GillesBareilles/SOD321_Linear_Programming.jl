@@ -12,8 +12,7 @@ Builds upon `model` the variables and the following constraints for the given in
 - for each node, entering and leaving flow bounded by 1 (good for continuous relaxations)
 - Run through the minimum number of aeros.
 """
-function build_base_model(pb::Problem; model = Model(with_optimizer(Cbc.CbcOptimizer)))
-    # model = Model(with_optimizer(Cbc.CbcOptimizer))
+function build_base_model(pb::Problem; model = Model(solver=CplexSolver()))
 
     n_aero = pb.n_aerodrome
     i_start = pb.start_aero
@@ -86,39 +85,25 @@ function build_base_model(pb::Problem; model = Model(with_optimizer(Cbc.CbcOptim
     return model, xij
 end
 
-function solve_model(pb, model, xij)
+function solve_model(model::JuMP.Model, pb::Problem, xij)
+
+    solve(model)
+
+    @show JuMP.getobjectivevalue(model)
+
     n_aero = pb.n_aerodrome
-
-    # Optimizing and getting solver status, solution
-    optimize!(model)
-
-    @show JuMP.termination_status(model)
-
-    @show JuMP.primal_status(model)
-    # @show JuMP.dual_status(model)
-
-    @show JuMP.objective_value(model)
-
     xsol = sparse(zeros(n_aero, n_aero))
-    for ((i, j), var) in xij
-        xsol[i, j] = JuMP.result_value(var)
+    for (i, j) in keys(xij)
+        xsol[i, j] = getvalue(xij[i, j])
     end
 
-    
-    # xsol = sparse(zeros(n_aero, n_aero))
-    # for ((i, j), var) in xij
-    #     xsol[i, j] = JuMP.result_value(var)
-    # end
-
-    # pos_coeffs = Set()
-    # for i=1:size(xsol, 1), j=1:size(xsol, 2)
-    #     if xsol[i, j] == 1
-    #         push!(pos_coeffs, (i, j))
-    #     end
-    # end
-    # @show pos_coeffs
-
-    # return xsol
+    pos_coeffs = Set()
+    for i=1:size(xsol, 1), j=1:size(xsol, 2)
+        if xsol[i, j] == 1
+            push!(pos_coeffs, (i, j))
+        end
+    end
+    @show pos_coeffs
 
     return xsol
 end

@@ -2,13 +2,15 @@ export solve_expo
 
 
 function solve_expo(pb)
-    m = Model(solver=CplexSolver(CPX_PARAM_MIPDISPLAY=1, CPX_PARAM_MIPINTERVAL=1))
+    m = Model(solver=CplexSolver())
 
     m, xij = build_base_model(pb, model=m)
 
     add_expo_subtourctr!(m, pb, xij)
 
-    return m, xij
+    xsol = solve_model(m, pb, xij)
+
+    return xsol
 end
 
 
