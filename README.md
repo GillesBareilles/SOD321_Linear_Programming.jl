@@ -40,6 +40,10 @@ Model 'sparse' in variables (only activation variables corresponding to edges th
 - [ ] Implement model with a polynomial number of constraints
 - [ ] Then look into column generation and relaxations...
 
+- [ ] Lazy callback
+- [ ] Implement solve function
+- [ ] Update polynomial model to new structure, test on all instances.
+
 ### Example
 
 ```julia

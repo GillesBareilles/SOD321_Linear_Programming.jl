@@ -50,3 +50,7 @@ function get_distance(pb::Problem, sol::Vector{Int})
 
     return dist
 end
+
+function dij(pb, i, j)
+    return round(norm(pb.aero_to_coord[i, :] - pb.aero_to_coord[j, :]))
+end

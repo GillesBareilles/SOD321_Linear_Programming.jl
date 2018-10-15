@@ -13,6 +13,12 @@ git-tree-sha1 = "38be61810f280c3c478f5c38aaf387f8f9199275"
 uuid = "b99e7846-7c00-51b0-8f62-c81ae34c0232"
 version = "0.5.1"
 
+[[CPLEX]]
+deps = ["Compat", "Libdl", "LinQuadOptInterface", "MathProgBase"]
+git-tree-sha1 = "15ef08da0d178c011411b6c92ea7af7618f160fa"
+uuid = "a076750e-1247-5638-91d2-ce28b192dca0"
+version = "0.4.0"
+
 [[Calculus]]
 deps = ["Compat"]
 git-tree-sha1 = "f60954495a7afcee4136f78d1d60350abd37a409"
@@ -119,6 +125,12 @@ uuid = "76f85450-5226-5b5a-8eaa-529ad045b433"
 [[Libdl]]
 uuid = "8f399da3-3557-5675-b5ff-fb832c97cbdb"
 
+[[LinQuadOptInterface]]
+deps = ["Compat", "MathOptInterface", "Pkg"]
+git-tree-sha1 = "777c9d1c64b1fc5bd20b2b7b13b746c2c757df0d"
+uuid = "f8899e07-120b-5979-ab1d-7b97bb9e1a48"
+version = "0.4.0"
+
 [[LinearAlgebra]]
 deps = ["Libdl"]
 uuid = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
@@ -129,6 +141,12 @@ uuid = "56ddb016-857b-54e1-b83d-db4d58db5568"
 [[Markdown]]
 deps = ["Base64"]
 uuid = "d6f4376e-aef5-505a-96c1-9c027394607a"
+
+[[MathOptInterface]]
+deps = ["Compat", "Unicode"]
+git-tree-sha1 = "ba12e7ce825c1458c03f88aae84fa630d882d303"
+uuid = "b8f27783-ece8-5eb3-8dc8-9495eed66fee"
+version = "0.6.1"
 
 [[MathProgBase]]
 deps = ["Compat"]
@@ -180,10 +198,10 @@ uuid = "995b91a9-d308-5afd-9ec6-746e21dbc043"
 version = "0.5.5"
 
 [[Plots]]
-deps = ["Base64", "Contour", "Dates", "FixedPointNumbers", "GR", "JSON", "LinearAlgebra", "Measures", "NaNMath", "Pkg", "PlotThemes", "PlotUtils", "Printf", "Random", "RecipesBase", "Reexport", "Requires", "Showoff", "SparseArrays", "StaticArrays", "Statistics", "StatsBase", "Test", "UUIDs"]
-git-tree-sha1 = "437b77558cc7f24883bd4c4fe25a240304402ffd"
+deps = ["Base64", "Contour", "Dates", "FixedPointNumbers", "GR", "JSON", "LinearAlgebra", "Measures", "NaNMath", "Pkg", "PlotThemes", "PlotUtils", "Printf", "REPL", "RecipesBase", "Reexport", "Requires", "Showoff", "SparseArrays", "StaticArrays", "Statistics", "StatsBase", "Test", "UUIDs"]
+git-tree-sha1 = "935241178e80158451cc33f4af7c57f671b881b8"
 uuid = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
-version = "0.20.5"
+version = "0.19.3"
 
 [[Printf]]
 deps = ["Unicode"]
@@ -199,9 +217,9 @@ uuid = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
 
 [[RecipesBase]]
 deps = ["Pkg", "Random", "Test"]
-git-tree-sha1 = "0b3cb370ee4dc00f47f1193101600949f3dcf884"
+git-tree-sha1 = "b18c3d875ad6805e3db59c4e81f206f04df71d66"
 uuid = "3cdcf5f2-1ef4-517c-9805-6587b60abb01"
-version = "0.6.0"
+version = "0.5.0"
 
 [[Reexport]]
 deps = ["Pkg"]

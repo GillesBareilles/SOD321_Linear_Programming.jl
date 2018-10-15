@@ -83,8 +83,6 @@ function build_base_model(pb::Problem; model = Model(with_optimizer(Cbc.CbcOptim
     @objective model Min sum((xij[i, j] + xij[j, i]) * dij(pb, i, j) for (i, j) in filter(x->x[1]<x[2], keys(xij)))
 
 
-    add_poly_constraints!(pb, model, xij)
-
     return model, xij
 end
 
@@ -105,6 +103,22 @@ function solve_model(pb, model, xij)
     for ((i, j), var) in xij
         xsol[i, j] = JuMP.result_value(var)
     end
+
+    
+    # xsol = sparse(zeros(n_aero, n_aero))
+    # for ((i, j), var) in xij
+    #     xsol[i, j] = JuMP.result_value(var)
+    # end
+
+    # pos_coeffs = Set()
+    # for i=1:size(xsol, 1), j=1:size(xsol, 2)
+    #     if xsol[i, j] == 1
+    #         push!(pos_coeffs, (i, j))
+    #     end
+    # end
+    # @show pos_coeffs
+
+    # return xsol
 
     return xsol
 end
