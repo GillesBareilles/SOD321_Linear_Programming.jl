@@ -112,6 +112,11 @@ function subtour(xijs, xij)
 end
 
 
+
+
+
+
+###################################################################
 function subtour_old(cb)
   println("In subtour")
   cur_sol = getvalue(x)
