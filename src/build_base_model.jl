@@ -87,23 +87,30 @@ end
 
 function solve_model(model::JuMP.Model, pb::Problem, xij)
 
-    solve(model)
+    status = solve(model)
+
+    if status != :Optimal
+        @warn status, "solver did not solve to optimality"
+        return -1
+    end
 
     @show JuMP.getobjectivevalue(model)
 
     n_aero = pb.n_aerodrome
     xsol = sparse(zeros(n_aero, n_aero))
-    for (i, j) in keys(xij)
+
+    for key in keys(xij)
+        (i, j) = key
         xsol[i, j] = getvalue(xij[i, j])
     end
 
-    pos_coeffs = Set()
-    for i=1:size(xsol, 1), j=1:size(xsol, 2)
-        if xsol[i, j] == 1
-            push!(pos_coeffs, (i, j))
-        end
-    end
-    @show pos_coeffs
+    @show certify_sol(pb, getvalue(xij))
+
+    arcs_to_treat = sol_to_arcs(getvalue(xij))
+
+    loops, paths = get_loops_paths(arcs_to_treat)
+    @show loops
+    @show paths
 
     return xsol
 end

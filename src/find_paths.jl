@@ -1,11 +1,11 @@
-using DataStructures
+export get_loops_paths
 
 """
     loops, paths = get_loops_paths(arcs_to_treat)
 
 Decompose the set of (oriented) arcs to treat into loops and (oriented) paths.
 """
-function get_loops_paths(arcs_to_treat::Set{Array{Int64,1}})
+function get_loops_paths(arcs_to_treat::OrderedSet{Array{Int64,1}})
 
     printall = 0
     # arcs_to_treat = OrderedSet(Array{Int64,1}[[19, 8], [11, 25], [25, 11], [20, 14], [14, 20], [7, 17], [1, 23], [15, 1], [17, 7], [4, 28], [8, 10], [28, 4], [23, 15]])
