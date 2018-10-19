@@ -89,6 +89,8 @@ function solve_model(model::JuMP.Model, pb::Problem, xij)
 
     status = solve(model)
 
+    @show model
+
     if status != :Optimal
         @warn status, "solver did not solve to optimality"
         return -1
