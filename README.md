@@ -63,3 +63,51 @@ rapport:
 - par instance, donner l'optimum, les temps de calcul, le modèle choisi.
 
 soutenance : test du code sur instances aléatoires.
+
+### Stats
+
+All runs are executed over salle.ensta.fr ; 32 CPUs at 1.995 GHz
+
+#### Problems description
+
+Problem       | dummy | aero_1 | aero_2 | aero_4 | aero_5
+:-----------: | :--: | :--: | :--: | :--: | :--:
+n_aero        | 6       | 50    | 70    | 40    | 30
+n_regions     | 2       | 4     | 16    | 2     |  3
+final objective | 12    | 168   | 235   | 114   | 130
+
+#### Lazy model
+
+Problem       | dummy | aero_1 | aero_2 | aero_4 | aero_5
+:-----------: | :--: | :--: | :--: | :--: | :--:
+n_variables   | 18      | 420   | 688   | 398   | 144
+nb init ctr   | 18      | 154   | 237   | 119   | 92
+total time    | 18 s    | 18s   | 5.8s  | 2.6   | 4.0
+nb nodes      | 0       | 25000 | 3500  | 3500  | 10400
+nb cuts added | 2       | 880   | 487   | 223   | 324
+
+
+#### Polynomial model
+
+Parallelized over 32 CPUs
+
+Problem       | dummy   | aero_1 | aero_2 | aero_4 | aero_5
+:-----------: | :-----: | :----: | :----: | :----: | :--:
+n_variables   | 24      | 470    | 758    | 438    | 174
+nb ctr        | 36      | 574    | 925    | 517    | 236
+total time    | 0.2s    | 9.8s   | 154s   | 1.3s   | 4.1
+nb nodes      | 0       | 67000  | 1.1e6  | 6300   | 10300
+
+#### Constraint generation over exponential model
+
+Master and subproblems are solved sequnetially, each parallelized over 32CPUs.
+
+Problem             | dummy | aero_1 | aero_2 | aero_4 | aero_5
+:-----------------: | :--: | :--: | :--: | :--: | :--:
+n_variables         | 
+nb init ctr         | 
+nb of master solves | 
+nb ctrs generated   | 
+
+total time          | 
+nb nodes            | 
