@@ -4,13 +4,15 @@ Solving a plane mapping problem...
 
 ## Install
 
-Works with julia v1.0.
+Works with julia v1.0, JuMP v0.18.4, CPLEX.
 
-Cloning the project and installing dependencies :
+Installation is done like any Julia package: 
  - Clone the repo and enter the main folder,
  - launch julia,
  - `]activate .`,
  - `]instantiate`
+
+ **Note**: the CPLEX.jl package can be tricky to install, the procedure is detailled at tihs address: https://github.com/JuliaOpt/CPLEX.jl.
 
 Afterwards, for using the module or develop it, just run `]activate .` and `using SOD321Project`.
 
@@ -40,29 +42,18 @@ Model 'sparse' in variables (only activation variables corresponding to edges th
 - [x] Implement model with a polynomial number of constraints
 - [ ] Then look into column generation and relaxations...
 
-- [ ] Lazy callback
-- [x] Implement solve function
-- [ ] Update polynomial model to new structure, test on all instances.
-- [ ] Bound ui by n, for potential better relaxations.
-
 ### Example
 
 ```julia
 ]activate .
-using SOD321Project; include("src/plot.jl")
+using SOD321Project
 
 pb = read_file("dummy_instance.txt")
 
-xsol = 
+xsol = solve_poly(pb)
+xsol = solve_expo_lazy(pb)
+# xsol = solve_expo(pb) # explicit exponential model, not advised for medium size instances
 ```
-
-### Evaluation
-
-rapport:
-- les deux modèles,
-- par instance, donner l'optimum, les temps de calcul, le modèle choisi.
-
-soutenance : test du code sur instances aléatoires.
 
 ### Stats
 
